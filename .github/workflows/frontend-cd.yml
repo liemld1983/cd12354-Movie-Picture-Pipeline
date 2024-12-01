@@ -81,6 +81,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      - name: Update Kubernetes Configuration
+        run: |
+          aws eks update-kubeconfig --name cluster --region ${{ secrets.AWS_REGION }}
+
       - name: Get Backend External IP
         id: backend-ip
         run: |
@@ -101,10 +105,6 @@ jobs:
         run: |
           cd starter/frontend
           docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_FRONTEND }}:${GITHUB_SHA}
-
-      - name: Update Kubernetes Configuration
-        run: |
-          aws eks update-kubeconfig --name cluster --region ${{ secrets.AWS_REGION }}
 
       - name: Deploy to Kubernetes
         run: |
