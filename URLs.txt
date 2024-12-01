@@ -1,2 +1,2 @@
-Backend URL: http://a34a3336173b345a1a19362cd1aa8e24-1094533955.us-east-1.elb.amazonaws.com/
-Frontend URL: http://a9bb6e53f552741c19163e3b0217e755-1303829940.us-east-1.elb.amazonaws.com/
+Backend URL: http://ae6459fd3c3214d36b3cdb942092a110-1938748844.us-east-1.elb.amazonaws.com/
+Frontend URL: http://ab053c56e566b4985906038fd975306b-56251517.us-east-1.elb.amazonaws.com/
