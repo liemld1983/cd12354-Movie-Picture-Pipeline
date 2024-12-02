@@ -96,7 +96,7 @@ jobs:
           REACT_APP_MOVIE_API_URL: ${{ env.BACKEND_IP }}
         run: |
           cd starter/frontend
-          docker build --build-arg REACT_APP_MOVIE_API_URL=${{ env.REACT_APP_MOVIE_API_URL }} -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_FRONTEND }}:${GITHUB_SHA} .
+          docker build --build-arg REACT_APP_MOVIE_API_URL=http://${{ env.REACT_APP_MOVIE_API_URL }} -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY_FRONTEND }}:${GITHUB_SHA} .
 
       - name: Authenticate to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
